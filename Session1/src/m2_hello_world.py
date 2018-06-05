@@ -36,7 +36,7 @@ print(3607 * 34227)
 #        by clicking on the blue bars.  ** Try that now. **
 #
 #     b. When you have completed a TO DO, you should change the word
-#          TODO
+#          DONE
 #        to
 #          DONE.
 #        Try it now on line 16 above, and note that its blue bar on
@@ -78,7 +78,7 @@ print(3607 * 34227)
 
 ########################################################################
 #
-# TODO: 5.
+# DONE: 5.
 #   Look at the list of files in this project to the left.
 #   Note that this file (m2_hello_world.py) is now displayed in a blue
 #   font color (if the file is highlighted select a different file so you can
