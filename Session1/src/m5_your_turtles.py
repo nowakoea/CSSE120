@@ -10,7 +10,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 ########################################################################
 
 ########################################################################
-# TODO: 2.
+# DONE: 2.
 #
 #  You should have RUN the PREVIOUS module and READ its code.
 #  (Do so now if you have not already done so.)
@@ -40,7 +40,7 @@ Elle.speed = 20
 # The first circle will have a radius of 50 pixels:
 radius = 50
 
-# Do the indented code 10 times.  Each time draws a circle.
+# Do the indented code 30 times.  Each time draws a circle.
 for k in range(30):
     # Put the pen down, then draw a circle of the given size:
     Elle.draw_circle(radius)
@@ -53,7 +53,7 @@ for k in range(30):
     Elle.left(45 + k)
 
     # Put the pen down again (so drawing resumes).
-    # Make the size for the NEXT circle be 3 pixels smaller.
+    # Make the size for the NEXT circle be 1.5 pixels smaller.
     Elle.pen_down()
     radius = radius - 1.5
 
@@ -65,7 +65,7 @@ nick.speed = 30
 sides = 8
 length = 50
 
-# Do the indented code 10 times.  Each time draws an octagon.
+# Do the indented code 30 times.  Each time draws an octagon.
 for k in range(30):
     # Put the pen down, then draw a octagon of the given side number and
     # length:
@@ -79,7 +79,7 @@ for k in range(30):
     nick.left(45 - k)
 
     # Put the pen down again (so drawing resumes).
-    # Make the size for the NEXT octagon be 3 pixels smaller.
+    # Make the size for the NEXT octagon be 1.5 pixels smaller.
     nick.pen_down()
     length = length - 1.5
 
