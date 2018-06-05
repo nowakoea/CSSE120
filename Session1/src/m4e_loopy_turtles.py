@@ -57,7 +57,6 @@ size = 300
 
 # Do the indented code 13 times.  Each time draws a square.
 for k in range(13):
-
     # Put the pen down, then draw a square of the given size:
     blue_turtle.draw_square(size)
 
