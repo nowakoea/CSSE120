@@ -271,13 +271,13 @@ def run_test_fancy_sums_of_digits():
 
     # Test 1:
     expected = 1
-    answer = fancy_sums_of_digits(10)
+    answer = fancy_sums_of_digits(1)
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
     # Test 2:
-    expected = 124309
-    answer = fancy_sums_of_digits(35)
+    expected = 1
+    answer = fancy_sums_of_digits(1)
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
 
@@ -322,8 +322,7 @@ def fancy_sums_of_digits(n):
     """
     x = n ** 1000
     y = n ** 999
-    x_to_the_y_power = x ** y
-    answer = sum_of_digits(x_to_the_y_power)
+    answer = sum_of_digits(x ** y)
     return answer
 
     # ------------------------------------------------------------------
