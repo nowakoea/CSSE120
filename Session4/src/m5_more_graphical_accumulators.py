@@ -373,7 +373,8 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     count = 1
     for k in range(n):
         line = rg.Line(rg.Point(point3.x, point3.y + point3.y - point1.y),
-                       rg.Point(point3.x + length1, point3.y))
+                       rg.Point(point3.x + length1, point3.y + point3.y -
+                                point1.y))
         if count % 2 == 0:
             line.color = R2_color
         else:
