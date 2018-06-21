@@ -458,7 +458,7 @@ def problem1c(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #   We supplied some of the tests but
     #     *** YOU MUST ADD TWO MORE TESTS IN THE ABOVE TESTING FUNCTION.
