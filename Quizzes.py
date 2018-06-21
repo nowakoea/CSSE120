@@ -41,14 +41,14 @@
 
 
 # Quiz 4
-
-def countEvens(n):
-    count = 0
-    for k in range(n):
-        if k % 2 == 0:
-            count = count + 1
-        print(k, count)
-    return count
-
-
-print(countEvens(4))
+#
+# def countEvens(n):
+#     count = 0
+#     for k in range(n):
+#         if k % 2 == 0:
+#             count = count + 1
+#         print(k, count)
+#     return count
+#
+#
+# print(countEvens(4))
