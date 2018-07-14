@@ -52,3 +52,11 @@
 #
 #
 # print(countEvens(4))
+
+# Quiz 6
+
+# for k in range(200, 215):
+#     print(k)
+
+# for k in range(100, 90 - 1, -1):
+#     print(k)
