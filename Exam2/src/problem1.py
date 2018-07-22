@@ -197,7 +197,7 @@ def problem1a(triangle):
       :rtype: Triangle
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     return Triangle(triangle.a * 2, triangle.b * 2, triangle.c * 2)
