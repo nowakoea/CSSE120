@@ -60,3 +60,28 @@
 
 # for k in range(100, 90 - 1, -1):
 #     print(k)
+
+# Quiz 10
+
+# print('11' + str(3 + 3) + '22')
+#
+# x = 1
+# y = 2
+# z = 3
+# print(str(x + y) + str(z))
+
+x = []
+for k in range(5):
+    x = x + [(2 * k)]
+
+print(x)
+
+x = ()
+for k in range(5):
+    x = x + ((2 * k),)
+print(x)
+
+x = ''
+for k in range(5):
+    x = x + str(2 * k)
+print(x)
