@@ -70,18 +70,27 @@
 # z = 3
 # print(str(x + y) + str(z))
 
-x = []
-for k in range(5):
-    x = x + [(2 * k)]
+# x = []
+# for k in range(5):
+#     x = x + [(2 * k)]
+#
+# print(x)
+#
+# x = ()
+# for k in range(5):
+#     x = x + ((2 * k),)
+# print(x)
+#
+# x = ''
+# for k in range(5):
+#     x = x + str(2 * k)
+# print(x)
 
-print(x)
+# nums = 0
+# for k in range(5):
+#     nums = nums + (k * 2)
+# print(nums)
 
-x = ()
-for k in range(5):
-    x = x + ((2 * k),)
-print(x)
-
-x = ''
-for k in range(5):
-    x = x + str(2 * k)
-print(x)
+seq = [[1, 2, 3], [4, 5], [6], [7, 8, 9], []]
+for k in range(len(seq) - 1, -1, -1):
+    print(len(seq[k]))
