@@ -741,7 +741,12 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
-        return self.__init__()
+        # return self.__init__(self.start, self.end)
+        point = Line(Point(self.__init__(self.start.clone().x,
+                                         self.start.clone().y),
+                           Point(self.__init__(self.end.clone().x,
+                                               self.end.clone().y))))
+        return point
 
 
 ########################################################################
