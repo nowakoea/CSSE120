@@ -95,26 +95,26 @@
 # for k in range(len(seq) - 1, -1, -1):
 #     print(len(seq[k]))
 
-class SecretAgent(object):
-    def __init__(self, names):
-        self.names = names
-        self.current_name_index = 0
-
-    def show_all_names(self):
-        for k in range(len(self.names)):
-            print(self.names[k])
-
-    def change_to_next_name(self):
-        self.current_name_index = self.current_name_index + 1
-        if self.current_name_index > len(self.names):
-            self.current_name_index = 0
-
-    def give_current_name(self):
-        return self.names[self.current_name_index]
-
-
-agent1 = SecretAgent(['Mary', 'Jane', 'Lola', 'Terri'])
-agent2 = SecretAgent(['Bob', 'Niko', 'Rick', 'Zane', 'Alec'])
-agent1.change_to_next_name()
-print(agent1.give_current_name())
-print(agent2.give_current_name())
+# class SecretAgent(object):
+#     def __init__(self, names):
+#         self.names = names
+#         self.current_name_index = 0
+#
+#     def show_all_names(self):
+#         for k in range(len(self.names)):
+#             print(self.names[k])
+#
+#     def change_to_next_name(self):
+#         self.current_name_index = self.current_name_index + 1
+#         if self.current_name_index > len(self.names):
+#             self.current_name_index = 0
+#
+#     def give_current_name(self):
+#         return self.names[self.current_name_index]
+#
+#
+# agent1 = SecretAgent(['Mary', 'Jane', 'Lola', 'Terri'])
+# agent2 = SecretAgent(['Bob', 'Niko', 'Rick', 'Zane', 'Alec'])
+# agent1.change_to_next_name()
+# print(agent1.give_current_name())
+# print(agent2.give_current_name())
