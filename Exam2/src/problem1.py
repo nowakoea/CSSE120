@@ -200,12 +200,7 @@ def problem1a(triangle):
     # TODO: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-    triangle.a = triangle.a * 2
-    triangle.b = triangle.b * 2
-    triangle.c = triangle.c * 2
-    new_triangle = Triangle(triangle.a, triangle.b, triangle.c)
-
-    return new_triangle
+    return Triangle(triangle.a * 2, triangle.b * 2, triangle.c * 2)
 
 
 def run_test_problem1b():
