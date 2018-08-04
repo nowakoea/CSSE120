@@ -119,3 +119,17 @@
 # print(agent1.give_current_name())
 # print(agent2.give_current_name())
 
+# Quiz 12
+
+# def mystery(s):
+#     for k in range(1, len(s)):
+#         print(s[k - 1], s[k])
+#
+#
+# mystery('csse120')
+
+# Quiz 13
+
+for j in range(4):
+    for k in range(j):
+        print(j, k)
