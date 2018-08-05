@@ -2,8 +2,8 @@
 Test 3, problem 2.
 
 Authors: David Fisher, David Mutchler, their colleagues
-         and PUT_YOUR_NAME_HERE. 
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Elle Nowakowski. 
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 import traceback
 
 import rosegraphics as rg
@@ -25,14 +25,13 @@ def main():
     # COMMENT OUT the following call to the  test_draw  function.
     # None of the remaining tests do any drawing.
 
-#     test_draw()
-#
-#     test_set_color()
-#     test_add_line()
-#     test_add_list_of_lines()
-#     test_get_lines_added()
-#     test_combine_with()
-#     test_give_lines_to()
+    test_draw()
+    test_set_color()
+    test_add_line()
+    test_add_list_of_lines()
+    test_get_lines_added()
+    test_combine_with()
+    test_give_lines_to()
 
 
 ########################################################################
@@ -110,9 +109,15 @@ class LineListController(object):
           :type max_lines:  positive number
         """
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # DONE: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
+        self.color = color
+        self.lines = lines
+        self.max_lines = max_lines
+        for k in range(len(self.lines)):
+            self.lines[k].color = self.color
+        self.total_lines_added = 0
 
     def draw(self, window):
         """
@@ -135,10 +140,13 @@ class LineListController(object):
           window.close_on_mouse_click()
         """
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
-        
+        for k in range(len(self.lines)):
+            self.lines[k].attach_to(window)
+            window.render()
+
     def set_color(self, color):
         """
         What comes in:
@@ -163,9 +171,12 @@ class LineListController(object):
                 # lines1 and line1 now have their color set to 'yellow'
         """
         # --------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
+        for k in range(len(self.lines)):
+            self.lines[k].color = color
+            self.color = color
 
     def add_line(self, line):
         """
@@ -176,7 +187,7 @@ class LineListController(object):
           -- Nothing (i.e. None)
         Side effects:
           -- If the number of lines in the lines list is already at the max_lines
-             then return immediately, no line my be added.
+             then return immediately, no line may be added.
           -- If space is available add the given line to the lines property.
           -- Additionally update the new line's color property to match the
              color property of this LineListController
@@ -202,9 +213,13 @@ class LineListController(object):
                 # the color of line4 is still 'purple' since it was not added.
         """
         # --------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # DONE: 5. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
+        if self.max_lines > len(self.lines):
+            self.lines = self.lines + [line]
+            self.total_lines_added = self.total_lines_added + 1
+            line.color = self.color
 
     def add_list_of_lines(self, lines):
         """
@@ -222,11 +237,13 @@ class LineListController(object):
               an example.
         """
         # --------------------------------------------------------------
-        # TODO: 6. Implement and test this function.
+        # DONE: 6. Implement and test this function.
         #     See the testing code (below) for more examples.
         #
         # NO CREDIT unless this method uses (calls)  add_line  appropriately.
         # --------------------------------------------------------------
+        for k in range(len(lines)):
+            self.add_line(lines[k])
 
     def get_lines_added(self):
         """
@@ -261,9 +278,10 @@ class LineListController(object):
                 # since line4 was not added (llc1 was already at max_lines value of 3)
         """
         # --------------------------------------------------------------
-        # TODO: 7. Implement and test this function.
+        # DONE: 7. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
+        return self.total_lines_added
 
     def combine_with(self, another_llc, color):
         """
@@ -310,9 +328,21 @@ class LineListController(object):
           :type color: string
         """
         # --------------------------------------------------------------
-        # TODO: 8. Implement and test this function.
+        # DONE: 8. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
+        seq = []
+        for k in range(len(self.lines)):
+            self.lines[k].color = color
+            seq = seq + [self.lines[k]]
+
+        for k in range(len(another_llc.lines)):
+            another_llc.lines[k].color = color
+            seq = seq + [another_llc.lines[k]]
+
+        max_lines = self.max_lines + another_llc.max_lines
+
+        return LineListController(seq, color, max_lines)
 
     def give_lines_to(self, another_llc):
         """
@@ -366,7 +396,13 @@ class LineListController(object):
         # For full credit, you must appropriately
         # use (call) the RELEVANT METHODS that YOU implemented above.
         # --------------------------------------------------------------
-        
+        original = len(another_llc.lines)
+        another_llc.add_list_of_lines(self.lines)
+        after = len(another_llc.lines)
+        self.lines = []
+
+        return after - original
+
 
 ########################################################################
 # The TEST functions for the  LineListController  class begin here.
@@ -403,7 +439,8 @@ def copy_lines_list(lines):
     return copy
 
 
-def test_instance_variables(llc, expected_lines, expected_color, expected_max_lines):
+def test_instance_variables(llc, expected_lines, expected_color,
+                            expected_max_lines):
     """
     Tests whether the instance variables for the given llc
     are per the given expected values.
@@ -413,18 +450,22 @@ def test_instance_variables(llc, expected_lines, expected_color, expected_max_li
         format_string = '{:9} {:10}     {:6} {:8}'
         print('            len(lines)  color      max_lines')
         print(format_string.format('Expected:',
-                                   len(expected_lines), expected_color, expected_max_lines))
+                                   len(expected_lines), expected_color,
+                                   expected_max_lines))
         print(format_string.format('Actual:',
                                    len(llc.lines), llc.color, llc.max_lines))
-        if (len(expected_lines) == len(llc.lines) and expected_color == llc.color
-                and expected_max_lines == llc.max_lines and equal_lines(llc.lines, expected_lines)):
+        if (len(expected_lines) == len(
+                llc.lines) and expected_color == llc.color
+                and expected_max_lines == llc.max_lines and equal_lines(
+                    llc.lines, expected_lines)):
             print("Test passed SUCCESSFULLY!")
         else:
             print_failure_message()
     except Exception:
         print_failure_message()
-        print("An error was thrown in the test code. This is most likely due to your code " +
-              "sending incorrect values to be tested.")
+        print(
+            "An error was thrown in the test code. This is most likely due to your code " +
+            "sending incorrect values to be tested.")
         traceback.print_exc()
         print_failure_message("")
 
@@ -493,25 +534,25 @@ def test_init():
     llc2 = LineListController(copy_lines_list(lines2), 'blue', 2)
     test_instance_variables(llc2, expected_lines2, 'blue', 2)
 
-#     # Test 3
-#     print()
-#     print("Test #3:")
-#     print("line7 Actual:   {}\n      Expected: {}".format(
-#         line7, expected_line7))
-#     if equal_line(line7, expected_line7):
-#         print("Test passed SUCCESSFULLY!")
-#     else:
-#         print_failure_message()
-#
-#     # Test 4
-#     print()
-#     print("Test #4:")
-#     print("line8 Actual:   {}\n      Expected: {}".format(
-#         line8, expected_line8))
-#     if equal_line(line8, expected_line8):
-#         print("Test passed SUCCESSFULLY!")
-#     else:
-#         print_failure_message()
+    # Test 3
+    print()
+    print("Test #3:")
+    print("line7 Actual:   {}\n      Expected: {}".format(
+        line7, expected_line7))
+    if equal_line(line7, expected_line7):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
+
+    # Test 4
+    print()
+    print("Test #4:")
+    print("line8 Actual:   {}\n      Expected: {}".format(
+        line8, expected_line8))
+    if equal_line(line8, expected_line8):
+        print("Test passed SUCCESSFULLY!")
+    else:
+        print_failure_message()
 
 
 def test_draw():
@@ -750,6 +791,7 @@ def test_add_list_of_lines():
     llc2 = LineListController(copy_lines_list(lines1 + lines2), 'blue', 6)
     llc2.add_list_of_lines(lines3)
     test_instance_variables(llc2, expected_lines2, 'blue', 6)
+
 
 #     # Test 3
 #     print()
