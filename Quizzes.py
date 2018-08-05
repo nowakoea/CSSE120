@@ -130,6 +130,47 @@
 
 # Quiz 13
 
-for j in range(4):
-    for k in range(j):
-        print(j, k)
+# for j in range(4):
+#     for k in range(j):
+#         print(j, k)
+
+# Quiz 14
+
+# def mystery_point(word):
+#     for j in range(len(word)):
+#         for k in range(j):
+#             print('_', end='')
+#         print(word[j])
+#
+#
+# mystery_point('hello')
+
+# def own_line(strings):
+#     for j in range(len(strings)):
+#         sublist = strings[j]
+#         for k in range(len(strings[j])):
+#             print(sublist[k])
+#
+#
+# own_line('hello')
+
+# import rosegraphics as rg
+#
+#
+# def myster_draw(m, n, window):
+#     x = 10
+#     y = 20
+#     for j in range(m):
+#         for k in range(n):
+#             upper_left = rg.Point(x, y)
+#             lower_right = rg.Point(x + 20, y + 20)
+#             rect = rg.Rectangle(upper_left, lower_right)
+#             rect.attach_to(window)
+#             window.render()
+#             x = x + 20
+#         x = 10
+#         y = y + 20
+#     window.close_on_mouse_click()
+
+
+myster_draw(3, 5, rg.RoseWindow(400, 400))
