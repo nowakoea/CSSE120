@@ -2,8 +2,8 @@
 Test 3, problem 3.
 
 Authors: David Fisher, David Mutchler, their colleagues
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Elle Nowakowski.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -80,9 +80,20 @@ def problem3(r):
       :type r:      int
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
+    for j in range(r):
+        for spaces in range(r - j - 1):
+            print(' ', end='')
+        for k in range(1, j + 1):
+            print(k, end='')
+        print(j + 1, end='')
+        for l in range(j, 0, -1):
+            print(l, end='')
+        for spaces in range(j):
+            print(' ', end='')
+        print()
 
 
 # ----------------------------------------------------------------------
