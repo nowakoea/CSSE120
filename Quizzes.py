@@ -157,7 +157,7 @@
 # import rosegraphics as rg
 #
 #
-# def myster_draw(m, n, window):
+# def mystery_draw(m, n, window):
 #     x = 10
 #     y = 20
 #     for j in range(m):
@@ -173,4 +173,5 @@
 #     window.close_on_mouse_click()
 
 
-myster_draw(3, 5, rg.RoseWindow(400, 400))
+# mystery_draw(3, 5, rg.RoseWindow(400, 400))
+
